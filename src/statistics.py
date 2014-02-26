@@ -6,7 +6,7 @@ import sys
 
 def getArguments():
 	if sys.argv[1] == "help":
-		sys.exit("Naudojimas:  python statistics.py '/nuoroda/iki/aplanko/ištyrimui' '/nuoroda/iki/rezultatų/failo' 'failopavadinimas' ")
+		sys.exit("Naudojimas:  python statistics.py '/nuoroda/iki/aplanko/ištyrimui/' '/nuoroda/iki/rezultatų/failo/' 'failopavadinimas' ")
 	if len(sys.argv) > 4: #argumentų skaičius negali būti didesnis nei 2
 		sys.exit("Klaida: Per daug parametrų arba jie nurodyti nekorektiškai. 'Python statistics.py help me' - naudojimo instrukcija")
 	if len(sys.argv) < 4: #argumentų skaičius negali būti mažesnis nei 2
@@ -22,27 +22,49 @@ def getArguments():
 		sys.exit("Klaida: nėra tokio katalogo, kurį norima ištirti/įrašyti rezultatų failą.")
 
 def createResultsFile(pathForResults, filename): #sukuriamas arba atidaromas rezultatų failas
-	if os.path.isfile(pathForResults+filename): #jei toks jau yra 
+	if os.path.isfile(pathForResults + filename): #jei toks jau yra 
 		try: 
-			f = file(pathForResults+filename, "r+")
+			f = open(pathForResults + filename, "r+")
 		except IOerror:
 			sys.exit("Klaida: neįmanoma nuskaityti esamo rezultatų failo")
 	else: #jei tokio dar nėra 
 		try:
-			f = file(pathForResults+filename, "w")
+			f = open(pathForResults + filename, "w")
 		except IOerror:
 			sys.exit("Klaida: neįmanoma sukurti tokio failo")
 	return f	
 
-
 def getFilesList(pathForAnalysis):
-	list = os.listdir(pathForAnalysis)
+	listOfNames = [f for f in os.listdir(pathForAnalysis) if os.path.isfile(os.path.join(pathForAnalysis,f))]
+	return listOfNames
+
+def analyseFiles(listOfNames, frez):
+	listOfSymbols = {}
+	for x in xrange(0, len(listOfNames)):
+		try:
+			f = open(pathForAnalysis + listOfNames[x], "r")
+			print(pathForAnalysis+listOfNames[x])
+		except IOerror:
+			sys.exit("Klaida:Nepavyko nuskaityti failo esančio direktorijoje")
+
+		fileText = f.read()
+		i = 0
+		while i < len(fileText):
+			if fileText[i] in listOfSymbols:
+				number = listOfSymbols[fileText[i]] + 1
+				listOfSymbols[fileText[i]] = number
+			else:
+				listOfSymbols[fileText[i]] = 1
+			i=i+1
+		#print(listOfSymbols) - išspausdina rezultatą į ekraną kiekvienam failui atskirai.
+		listOfSymbols = {}
 
 
 
 
+#metodų iškvietimai:
 
 pathForAnalysis, pathForResults, filename = getArguments()
 f = createResultsFile(pathForResults, filename)
-
-getFilesList(pathForAnalysis)
+listOfNames = getFilesList(pathForAnalysis)
+analyseFiles(listOfNames, f) 
