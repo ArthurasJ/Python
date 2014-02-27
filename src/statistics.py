@@ -40,10 +40,11 @@ def getFilesList(pathForAnalysis):
 
 def analyseFiles(listOfNames, frez):
 	listOfSymbols = {}
+	TotListOfSymbols = {}
 	for x in xrange(0, len(listOfNames)):
 		try:
 			f = open(pathForAnalysis + listOfNames[x], "r")
-			print(pathForAnalysis+listOfNames[x])
+			printStringToFile("\n Failas:"+ pathForAnalysis + listOfNames[x] + "\n", frez) 
 		except IOerror:
 			sys.exit("Klaida:Nepavyko nuskaityti failo esančio direktorijoje")
 
@@ -56,11 +57,17 @@ def analyseFiles(listOfNames, frez):
 			else:
 				listOfSymbols[fileText[i]] = 1
 			i=i+1
-		#print(listOfSymbols) - išspausdina rezultatą į ekraną kiekvienam failui atskirai.
+
+		printStringToFile(str(listOfSymbols), frez)
+
+		for symbol in listOfSymbols:
+			TotListOfSymbols[symbol] = TotListOfSymbols.get(symbol, 0) + listOfSymbols[symbol]
 		listOfSymbols = {}
+	printStringToFile("\n Visame kataloge: \n", frez) 
+	printStringToFile(str(TotListOfSymbols), frez)
 
-
-
+def printStringToFile(stringline, f):
+	f.write(stringline)
 
 #metodų iškvietimai:
 
