@@ -3,6 +3,7 @@
 
 import os
 import sys
+import re
 
 def getArguments():
 	if sys.argv[1] == "help":
@@ -63,8 +64,10 @@ def openFiles(listOfNames, frez):
 def analyseFileWords(fileText, frez, TotListOfWords):
 	listOfWords = {}
 
-	i = 0	
-	words = fileText.split(" ")
+	i = 0
+
+	words = re.split('\W+', fileText)
+
 	while i < len(words):
 		if words[i] in listOfWords:
 			number = listOfWords[words[i]] + 1
