@@ -20,12 +20,12 @@ def getArguments():
 	if os.path.exists(pathForAnalysis) and os.path.exists(pathForResults):
 		return(pathForAnalysis, pathForResults, filename)
 	else:
-		sys.exit("Klaida: nėra tokio katalogo, kurį norima ištirti/įrašyti rezultatų failą.")
+		sys.exit("Klaida: nėra tokio katalogo, kurį norima ištirti ar įrašyti rezultatų failą.")
 
 def createResultsFile(pathForResults, filename): #sukuriamas arba atidaromas rezultatų failas
 	if os.path.isfile(pathForResults + filename): #jei toks jau yra 
 		try: 
-			f = open(pathForResults + filename, "r+")
+			f = open(pathForResults + filename, "w")
 		except IOerror:
 			sys.exit("Klaida: neįmanoma nuskaityti esamo rezultatų failo")
 	else: #jei tokio dar nėra 
@@ -64,10 +64,8 @@ def openFiles(listOfNames, frez):
 def analyseFileWords(fileText, frez, TotListOfWords):
 	listOfWords = {}
 
-	i = 0
-
 	words = re.split('\W+', fileText)
-
+	i = 0
 	while i < len(words):
 		if words[i] in listOfWords:
 			number = listOfWords[words[i]] + 1
