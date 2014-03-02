@@ -60,7 +60,6 @@ def openFiles(listOfNames, frez):
 	printStringToFile("\n\n Visame kataloge žodžių dažnis: \n\n", frez) 
 	printStringToFile(str(TotListOfWords), frez)
 
-
 def analyseFileWords(fileText, frez, TotListOfWords):
 	listOfWords = {}
 
@@ -81,7 +80,6 @@ def analyseFileWords(fileText, frez, TotListOfWords):
 		TotListOfWords[word] = TotListOfWords.get(word, 0) + listOfWords[word]
 
 	return TotListOfWords
-
 
 def analyseFileSymbols(fileText, frez, TotListOfSymbols):
 	listOfSymbols = {}
@@ -107,9 +105,7 @@ def printStringToFile(stringline, f):
 	f.write(stringline)
 
 #metodų iškvietimai:
-
 pathForAnalysis, pathForResults, filename = getArguments()
 f = createResultsFile(pathForResults, filename)
 listOfNames = getFilesList(pathForAnalysis)
 openFiles(listOfNames, f)
-
