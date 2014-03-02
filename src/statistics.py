@@ -23,16 +23,10 @@ def getArguments():
 		sys.exit("Klaida: nėra tokio katalogo, kurį norima ištirti ar įrašyti rezultatų failą.")
 
 def createResultsFile(pathForResults, filename): #sukuriamas arba atidaromas rezultatų failas
-	if os.path.isfile(pathForResults + filename): #jei toks jau yra 
-		try: 
-			f = open(pathForResults + filename, "w")
-		except IOerror:
-			sys.exit("Klaida: neįmanoma nuskaityti esamo rezultatų failo")
-	else: #jei tokio dar nėra 
-		try:
-			f = open(pathForResults + filename, "w")
-		except IOerror:
-			sys.exit("Klaida: neįmanoma sukurti tokio failo")
+	try: 
+		f = open(pathForResults + filename, "w")
+	except IOerror:
+		sys.exit("Klaida: neįmanoma sukurti rezultatų failo")
 	return f	
 
 def getFilesList(pathForAnalysis):
