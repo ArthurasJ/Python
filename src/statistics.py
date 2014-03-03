@@ -26,7 +26,7 @@ def createResultsFile(pathForResults, filename): #sukuriamas arba atidaromas rez
 	try: 
 		f = open(pathForResults + filename, "w")
 	except IOerror:
-		sys.exit("Klaida: neįmanoma sukurti rezultatų failo")
+		sys.exit("Klaida: neįmanoma sukurti rezultatų failo.")
 	return f	
 
 def getFilesList(pathForAnalysis):
