@@ -33,7 +33,7 @@ def getFilesList(pathForAnalysis):
 	listOfNames = [f for f in os.listdir(pathForAnalysis) if os.path.isfile(os.path.join(pathForAnalysis,f))]
 	return listOfNames
 
-def openFiles(listOfNames, frez):
+def openFiles(listOfNames, frez): #nuskaitomi failai direktorijoje
 	TotListOfSymbols = {}
 	TotListOfWords = {}
 	for x in xrange(0, len(listOfNames)):
