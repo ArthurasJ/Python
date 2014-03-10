@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import codecs
 import json
 import os
 import re
@@ -34,7 +35,7 @@ def get_arguments():
 def create_results_file(path_for_results, file_name):  # sukuriamas
                                                        # rezultatų failas
     try:
-        f = open(path_for_results + file_name, "w")
+        f = codecs.open(path_for_results + file_name, "w", "utf-8")
     except IOerror:
         sys.exit("Klaida: neįmanoma sukurti rezultatų failo.")
     return f
@@ -46,30 +47,32 @@ def get_files_list(path_for_analysis):
     return list_of_names
 
 
-def open_files(list_of_names, frez):  # nuskaitomi failai direktorijoje
+def open_files(list_of_names, fr):  # nuskaitomi failai direktorijoje
     tot_list_of_symbols = {}
     tot_list_of_words = {}
     for x in xrange(0, len(list_of_names)):
         try:
-            f = open(path_for_analysis + list_of_names[x], "r")
+            f = codecs.open(path_for_analysis + list_of_names[x], "r", "utf-8")
         except IOerror:
             sys.exit("Klaida: Nepavyko nuskaityti failo esančio direktorijoje")
 
-        frez.write("\n\n Failas:" + path_for_analysis
-                                 + list_of_names[x])    
+        fr.write("\n\n Failas:" + path_for_analysis
+                 + list_of_names[x])
 
         file_text = f.read()
-        tot_list_of_symbols = analyse_file_symbols(file_text, frez,
+        tot_list_of_symbols = analyse_file_symbols(file_text, fr,
                                                    tot_list_of_symbols)
-        tot_list_of_words = analyse_file_words(file_text, frez,
+        tot_list_of_words = analyse_file_words(file_text, fr,
                                                tot_list_of_words)
         f.close()
 
-    print_dictionary_to_file(tot_list_of_symbols, "\n\n Visame kataloge simbolių dažnis: \n\n", frez)
-    print_dictionary_to_file(tot_list_of_words, "\n\n Visame kataloge žodžių dažnis: \n\n", frez)
+    print_dictionary_to_file(tot_list_of_symbols,
+                             "\n\n Visame kataloge simbolių dažnis: \n\n", fr)
+    print_dictionary_to_file(tot_list_of_words,
+                             "\n\n Visame kataloge žodžių dažnis: \n\n", fr)
 
 
-def analyse_file_words(file_text, frez, tot_list_of_words):
+def analyse_file_words(file_text, fr, tot_list_of_words):
     list_of_words = {}
 
     words = re.split('\W+', file_text)
@@ -82,16 +85,16 @@ def analyse_file_words(file_text, frez, tot_list_of_words):
             list_of_words[words[i]] = 1
         i = i + 1
 
-    print_dictionary_to_file(list_of_words, "\n\n Žodžiai faile: \n\n", frez)
+    print_dictionary_to_file(list_of_words, "\n\n Žodžiai faile: \n\n", fr)
 
     for word in list_of_words:
-        tot_list_of_words[word] = tot_list_of_words.get(word, 0)
-        + list_of_words[word]
+        tot_list_of_words[word] = (tot_list_of_words.get(word, 0)
+                                   + list_of_words[word])
 
     return tot_list_of_words
 
 
-def analyse_file_symbols(file_text, frez, tot_list_of_symbols):
+def analyse_file_symbols(file_text, fr, tot_list_of_symbols):
     list_of_symbols = {}
 
     i = 0
@@ -103,20 +106,21 @@ def analyse_file_symbols(file_text, frez, tot_list_of_symbols):
             list_of_symbols[file_text[i]] = 1
         i = i + 1
 
-    print_dictionary_to_file(list_of_symbols, "\n\n Simboliai faile: \n\n", frez)
+    print_dictionary_to_file(list_of_symbols, "\n\n Simboliai faile: \n\n", fr)
 
     for symbol in list_of_symbols:
-        tot_list_of_symbols[symbol] = tot_list_of_symbols.get(symbol, 0)
-        + list_of_symbols[symbol]
+        tot_list_of_symbols[symbol] = (tot_list_of_symbols.get(symbol, 0)
+                                       + list_of_symbols[symbol])
 
     return tot_list_of_symbols
 
 
 def print_dictionary_to_file(dictionary, message, f):
-    jsondict = json.dumps(dictionary, sort_keys = True, ensure_ascii = False, indent = 3);
-    f.write(message)
+    jsondict = json.dumps(dictionary, sort_keys=True, 
+                          ensure_ascii=False, indent=3)
+    f.write(message.decode("utf-8"))
     f.write(jsondict)
-    
+
 
 # metodų iškvietimai:
 path_for_analysis, path_for_results, file_name = get_arguments()
