@@ -1,19 +1,224 @@
 
 
+ Failas:/home/arturasjankus/Python/test/2
+
+ Simboliai faile: 
+
+{
+   "\n": 2, 
+   " ": 51, 
+   ",": 5, 
+   ".": 7, 
+   "L": 3, 
+   "M": 1, 
+   "U": 3, 
+   "V": 2, 
+   "a": 20, 
+   "b": 1, 
+   "c": 15, 
+   "d": 11, 
+   "e": 29, 
+   "f": 1, 
+   "g": 8, 
+   "i": 39, 
+   "l": 12, 
+   "m": 19, 
+   "n": 16, 
+   "o": 18, 
+   "p": 7, 
+   "r": 15, 
+   "s": 24, 
+   "t": 31, 
+   "u": 15, 
+   "v": 5, 
+   "Ö": 4, 
+   "ç": 3, 
+   "ó": 4, 
+   "ô": 3, 
+   "°": 1, 
+   "Ø": 4, 
+   "ƒ": 18, 
+   "≈": 1
+}
+
+ ≈Ωod≈æiai faile: 
+
+{
+   "": 2, 
+   "Lorem": 3, 
+   "Maecenas": 1, 
+   "Ut": 3, 
+   "Vestibulum": 1, 
+   "Vivamus": 1, 
+   "accumsan": 1, 
+   "adipiscing": 3, 
+   "amet": 4, 
+   "at": 1, 
+   "auctor": 1, 
+   "consectetur": 3, 
+   "dignissim": 3, 
+   "dolor": 4, 
+   "elit": 3, 
+   "enim": 2, 
+   "eros": 1, 
+   "et": 1, 
+   "feugiat": 1, 
+   "ipsum": 3, 
+   "laoreet": 1, 
+   "ligula": 1, 
+   "mi": 1, 
+   "nec": 1, 
+   "sit": 4, 
+   "tincidunt": 1, 
+   "vitae": 1, 
+   "viverra": 1, 
+   "volutpat": 1
+}
+
  Failas:/home/arturasjankus/Python/test/1
 
  Simboliai faile: 
 
-{'\x85': 4, '\n': 3, '\x8d': 3, '\x97': 4, '\x99': 3, '\xa1': 1, ' ': 31, ',': 3, '\xaf': 4, '.': 5, '\xc5': 1, '\xc4': 18, 'M': 1, 'L': 1, 'U': 1, 'V': 2, 'a': 16, 'c': 9, 'b': 1, 'e': 19, 'd': 5, 'g': 4, 'f': 1, 'i': 21, 'm': 11, 'l': 8, 'o': 10, 'n': 10, 'p': 3, 's': 12, 'r': 9, 'u': 11, 't': 19, 'v': 5}
+{
+   "\n": 2, 
+   " ": 31, 
+   ",": 3, 
+   ".": 5, 
+   "L": 1, 
+   "M": 1, 
+   "U": 1, 
+   "V": 2, 
+   "a": 16, 
+   "b": 1, 
+   "c": 9, 
+   "d": 5, 
+   "e": 19, 
+   "f": 1, 
+   "g": 4, 
+   "i": 21, 
+   "l": 8, 
+   "m": 11, 
+   "n": 10, 
+   "o": 10, 
+   "p": 3, 
+   "r": 9, 
+   "s": 12, 
+   "t": 19, 
+   "u": 11, 
+   "v": 5, 
+   "Ö": 4, 
+   "ç": 3, 
+   "ó": 4, 
+   "ô": 3, 
+   "°": 1, 
+   "Ø": 4, 
+   "ƒ": 18, 
+   "≈": 1
+}
 
  ≈Ωod≈æiai faile: 
 
-{'': 2, 'laoreet': 1, 'auctor': 1, 'elit': 1, 'at': 1, 'enim': 2, 'et': 1, 'ligula': 1, 'eros': 1, 'sit': 2, 'nec': 1, 'amet': 2, 'consectetur': 1, 'dignissim': 1, 'vitae': 1, 'Maecenas': 1, 'feugiat': 1, 'Vestibulum': 1, 'Ut': 1, 'dolor': 2, 'tincidunt': 1, 'accumsan': 1, 'ipsum': 1, 'Lorem': 1, 'viverra': 1, 'mi': 1, 'adipiscing': 1, 'Vivamus': 1, 'volutpat': 1}
+{
+   "": 2, 
+   "Lorem": 1, 
+   "Maecenas": 1, 
+   "Ut": 1, 
+   "Vestibulum": 1, 
+   "Vivamus": 1, 
+   "accumsan": 1, 
+   "adipiscing": 1, 
+   "amet": 2, 
+   "at": 1, 
+   "auctor": 1, 
+   "consectetur": 1, 
+   "dignissim": 1, 
+   "dolor": 2, 
+   "elit": 1, 
+   "enim": 2, 
+   "eros": 1, 
+   "et": 1, 
+   "feugiat": 1, 
+   "ipsum": 1, 
+   "laoreet": 1, 
+   "ligula": 1, 
+   "mi": 1, 
+   "nec": 1, 
+   "sit": 2, 
+   "tincidunt": 1, 
+   "vitae": 1, 
+   "viverra": 1, 
+   "volutpat": 1
+}
 
  Visame kataloge simboli≈≥ da≈ænis: 
 
-{'\x85': 0, '\n': 0, '\x8d': 0, '\x97': 0, '\x99': 0, '\xa1': 0, ' ': 0, ',': 0, '\xaf': 0, '.': 0, '\xc5': 0, '\xc4': 0, 'M': 0, 'L': 0, 'U': 0, 'V': 0, 'a': 0, 'c': 0, 'b': 0, 'e': 0, 'd': 0, 'g': 0, 'f': 0, 'i': 0, 'm': 0, 'l': 0, 'o': 0, 'n': 0, 'p': 0, 's': 0, 'r': 0, 'u': 0, 't': 0, 'v': 0}
+{
+   "\n": 0, 
+   " ": 0, 
+   ",": 0, 
+   ".": 0, 
+   "L": 0, 
+   "M": 0, 
+   "U": 0, 
+   "V": 0, 
+   "a": 0, 
+   "b": 0, 
+   "c": 0, 
+   "d": 0, 
+   "e": 0, 
+   "f": 0, 
+   "g": 0, 
+   "i": 0, 
+   "l": 0, 
+   "m": 0, 
+   "n": 0, 
+   "o": 0, 
+   "p": 0, 
+   "r": 0, 
+   "s": 0, 
+   "t": 0, 
+   "u": 0, 
+   "v": 0, 
+   "Ö": 0, 
+   "ç": 0, 
+   "ó": 0, 
+   "ô": 0, 
+   "°": 0, 
+   "Ø": 0, 
+   "ƒ": 0, 
+   "≈": 0
+}
 
  Visame kataloge ≈æod≈æi≈≥ da≈ænis: 
 
-{'': 0, 'laoreet': 0, 'auctor': 0, 'elit': 0, 'at': 0, 'enim': 0, 'et': 0, 'ligula': 0, 'eros': 0, 'sit': 0, 'nec': 0, 'amet': 0, 'consectetur': 0, 'dignissim': 0, 'vitae': 0, 'Maecenas': 0, 'feugiat': 0, 'Vestibulum': 0, 'Ut': 0, 'volutpat': 0, 'tincidunt': 0, 'accumsan': 0, 'ipsum': 0, 'Lorem': 0, 'viverra': 0, 'mi': 0, 'adipiscing': 0, 'Vivamus': 0, 'dolor': 0}
+{
+   "": 0, 
+   "Lorem": 0, 
+   "Maecenas": 0, 
+   "Ut": 0, 
+   "Vestibulum": 0, 
+   "Vivamus": 0, 
+   "accumsan": 0, 
+   "adipiscing": 0, 
+   "amet": 0, 
+   "at": 0, 
+   "auctor": 0, 
+   "consectetur": 0, 
+   "dignissim": 0, 
+   "dolor": 0, 
+   "elit": 0, 
+   "enim": 0, 
+   "eros": 0, 
+   "et": 0, 
+   "feugiat": 0, 
+   "ipsum": 0, 
+   "laoreet": 0, 
+   "ligula": 0, 
+   "mi": 0, 
+   "nec": 0, 
+   "sit": 0, 
+   "tincidunt": 0, 
+   "vitae": 0, 
+   "viverra": 0, 
+   "volutpat": 0
+}

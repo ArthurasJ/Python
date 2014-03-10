@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import json
 import os
 import re
 import sys
@@ -51,10 +52,11 @@ def open_files(list_of_names, frez):  # nuskaitomi failai direktorijoje
     for x in xrange(0, len(list_of_names)):
         try:
             f = open(path_for_analysis + list_of_names[x], "r")
-            print_string_to_file("\n\n Failas:" + path_for_analysis
-                                 + list_of_names[x], frez)
         except IOerror:
             sys.exit("Klaida: Nepavyko nuskaityti failo esančio direktorijoje")
+
+        frez.write("\n\n Failas:" + path_for_analysis
+                                 + list_of_names[x])    
 
         file_text = f.read()
         tot_list_of_symbols = analyse_file_symbols(file_text, frez,
@@ -63,11 +65,8 @@ def open_files(list_of_names, frez):  # nuskaitomi failai direktorijoje
                                                tot_list_of_words)
         f.close()
 
-    print_string_to_file("\n\n Visame kataloge simbolių dažnis: \n\n", frez)
-    print_string_to_file(str(tot_list_of_symbols), frez)
-
-    print_string_to_file("\n\n Visame kataloge žodžių dažnis: \n\n", frez)
-    print_string_to_file(str(tot_list_of_words), frez)
+    print_dictionary_to_file(tot_list_of_symbols, "\n\n Visame kataloge simbolių dažnis: \n\n", frez)
+    print_dictionary_to_file(tot_list_of_words, "\n\n Visame kataloge žodžių dažnis: \n\n", frez)
 
 
 def analyse_file_words(file_text, frez, tot_list_of_words):
@@ -83,8 +82,7 @@ def analyse_file_words(file_text, frez, tot_list_of_words):
             list_of_words[words[i]] = 1
         i = i + 1
 
-    print_string_to_file('\n\n Žodžiai faile: \n\n', frez)
-    print_string_to_file(str(list_of_words), frez)
+    print_dictionary_to_file(list_of_words, "\n\n Žodžiai faile: \n\n", frez)
 
     for word in list_of_words:
         tot_list_of_words[word] = tot_list_of_words.get(word, 0)
@@ -105,8 +103,7 @@ def analyse_file_symbols(file_text, frez, tot_list_of_symbols):
             list_of_symbols[file_text[i]] = 1
         i = i + 1
 
-    print_string_to_file('\n\n Simboliai faile: \n\n', frez)
-    print_string_to_file(str(list_of_symbols), frez)
+    print_dictionary_to_file(list_of_symbols, "\n\n Simboliai faile: \n\n", frez)
 
     for symbol in list_of_symbols:
         tot_list_of_symbols[symbol] = tot_list_of_symbols.get(symbol, 0)
@@ -115,10 +112,13 @@ def analyse_file_symbols(file_text, frez, tot_list_of_symbols):
     return tot_list_of_symbols
 
 
-def print_string_to_file(string_line, f):
-    f.write(string_line)
+def print_dictionary_to_file(dictionary, message, f):
+    jsondict = json.dumps(dictionary, sort_keys = True, ensure_ascii = False, indent = 3);
+    f.write(message)
+    f.write(jsondict)
+    
 
-  # metodų iškvietimai:
+# metodų iškvietimai:
 path_for_analysis, path_for_results, file_name = get_arguments()
 f = create_results_file(path_for_results, file_name)
 list_of_names = get_files_list(path_for_analysis)
